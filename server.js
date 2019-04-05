@@ -5,7 +5,7 @@ var PORT = process.env.port || 3000;
 var app = express();
 
 //access to public folder
-app.use(express.static(__dirname + "/app/public/"));
+app.use(express.static("public"));
 
 //body parser
 app.use(express.urlencoded({ extended: true}));
@@ -14,7 +14,7 @@ app.use(express.json());
 //set handlebars.
 var exphbs = require("express-handlebars");
 
-app.enging("handlebars", exphbs({ defaultLayout: "main"}));
+app.engine("handlebars", exphbs({ defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
 //require the controller for the routes

@@ -5,7 +5,8 @@
 <ul>
     {{#each food}}
         {{#unless eaten}}
-            {{> food/food-block eaten=true}}
+            <h1>eaten false</h1>
+            {{> food-block eaten=true}}
         {{/unless}}
     {{/each}}
 </ul>
@@ -14,7 +15,8 @@
 <ul>
     {{#each food}}
         {{#if eaten}}
-            {{> food/food-block eaten=false}}
+        <h1>eaten true</h1>
+            {{> food-block eaten=false}}
         {{/if}}
     {{/each}}
 </ul>
