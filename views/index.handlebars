@@ -1,0 +1,31 @@
+<h1>Foods that you wish you could eat right now</h1>
+
+<h2>Foods that you have not currently consumed</h2>
+
+<ul>
+    {{#each food}}
+        {{#unless eaten}}
+            {{> food/food-block eaten=true}}
+        {{/unless}}
+    {{/each}}
+</ul>
+
+<h2>Foods that you have somehow Eaten</h2>
+<ul>
+    {{#each food}}
+        {{#if eaten}}
+            {{> food/food-block eaten=false}}
+        {{/if}}
+    {{/each}}
+</ul>
+
+<h2> Add a new food you wish you could eat</h2>
+
+<form class="form-group">
+    <div class="form-group">
+        <label for="food">Food Name:</label>
+        <input type="text" id="food" name="food">
+    </div>
+
+    <button type="submit">Add Food</button>
+</form>
