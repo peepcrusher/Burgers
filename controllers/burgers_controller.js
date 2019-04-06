@@ -13,29 +13,30 @@ router.get("/", function (req, res) {
         var hbsObject = {
             food: data
         };
-        console.log(hbsObject);
         res.render("index", hbsObject);
     });
 });
 
 router.post("/api/foods", function (req, res) {
+    console.log("YOLO POST REQUEST");
     food.create([
         "food", "eaten"
     ],
         [
             req.body.food, req.body.eaten
         ], function (result) {
+            console.log(result);
             res.json({ id: result.insertId });
         });
 });
 
 router.put("/api/foods/:id", function (req, res) {
-    var condition = "id = " + req.params.id;
+    var condition = req.params.id;
 
     food.update({
         eaten: req.body.eaten
     }, condition, function (result) {
-
+        console.log(result);
         if(result.changedRows == 0){
             return res.status(404).end();
         }

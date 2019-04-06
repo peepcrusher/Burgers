@@ -1,8 +1,8 @@
 //document ready
-$(function(){
-    $(".change-eaten").on("click", function(event){
-        var id= $(this).data("id");
-        
+$(function () {
+    $(".change-eaten").on("click", function (event) {
+        var id = $(this).data("id");
+
         var newEatenState = {
             eaten: true
         };
@@ -11,17 +11,16 @@ $(function(){
             type: "PUT",
             data: newEatenState
         }).then(
-            function() {
+            function () {
                 location.reload();
             }
         )
     })
 
-    $(".create-form").on("submit", function(event){
+    $(".create-form").on("submit", function (event) {
         event.preventDefault();
-
         var newFood = {
-            food: $("#food").val().trim(),
+            food: $("#food").val(),
             eaten: false
         };
 
@@ -29,9 +28,12 @@ $(function(){
             type: "POST",
             data: newFood
         }).then(
-            function(){
+            function () {
+                console.log("Created new food");
                 location.reload();
             }
         )
     })
+
+    
 })

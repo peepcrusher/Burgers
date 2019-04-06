@@ -5,7 +5,6 @@
 <ul>
     {{#each food}}
         {{#unless eaten}}
-            <h1>eaten false</h1>
             {{> food-block eaten=true}}
         {{/unless}}
     {{/each}}
@@ -15,7 +14,6 @@
 <ul>
     {{#each food}}
         {{#if eaten}}
-        <h1>eaten true</h1>
             {{> food-block eaten=false}}
         {{/if}}
     {{/each}}
@@ -29,5 +27,5 @@
         <input type="text" id="food" name="food">
     </div>
 
-    <button type="submit">Add Food</button>
+    <button class="create-form" type="submit">Add Food</button>
 </form>

@@ -10,6 +10,7 @@ var food = {
     },
 
     create: function(cols, vals, cb){
+        console.log("I'm in burger.js")
         orm.create("food",cols, vals, function(res){
             cb(res);
         });
